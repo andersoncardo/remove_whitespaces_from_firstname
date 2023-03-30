@@ -30,9 +30,19 @@ php bin/magento setup:upgrade
 
 
 ## Usage
+ Once a new
+customer is being registered, the extension checks the First Name field. If the First
+Name field has whitespaces, they must be removed, so the customer entity is saved
+without whitespaces in the First Name property. All checks and modifications must be
+performed on the server side.
+Once the customer has been successfully registered, the extension should invoke the
+following actions.
 
-The cardoso/module-customer-products package allows customers to view a list of their products filtered by price range. To access this list, customers can log in to their account and navigate to the "Products" section.
+● Log customer data (current date and time, customer first name, customer last
+name, customer email) to a separate log file in the var/log directory.
 
+● Send an email with the customer data (customer first name, customer last name,
+customer email) to the Customer Support email address configured in Magento.
 
 ## License
 
